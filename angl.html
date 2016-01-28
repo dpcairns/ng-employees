@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+  <html ng-app="myModule">
+    <head>
+
+      <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+      <link href="css/styles.css" rel="stylesheet" type="text/css">
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.2/angular.min.js"></script>
+      <script src="script.js"></script>  
+      <link
+    </head>
+    <body>
+      <div class="container" ng-controller="myController">
+      <div class="col-md-offset-3 col-md-6 outlined">
+      <h1>This is the outermost shell, index.html</h1>
+
+      
+      <br/>
+      First name: <input type="text" ng-model="newEmployee.firstName" placeholder="For example: Floop">
+      <br/>
+      Last name: <input type="text" ng-model="newEmployee.lastName" placeholder="For example: Roobike">
+      <br/>
+      Gender: <input type="text" ng-model="newEmployee.gender" placeholder="For example: a Lady">
+      <br/>
+      A small message to welcome them:  <input type="text" ng-model="message" placeholder="For example: Hello!">
+          <button ng-click="addEmployee()">Add this employee</button>
+
+            {{ employee.firstName }} {{ employee.lastName }} is {{ employee.gender }}. His current mood is {{ mood.name }}. We know because his face has a {{ mood.face }} on it. 
+     
+      <h4>{{ message }}</h4>
+      <a ng-link='/nextView'>Link to next view</a>
+            <ul>
+        <li ng-repeat="employee in employees | orderBy:'$index':true">
+        {{ employee.firstName }} {{ employee.lastName }} is {{ employee.gender }}. His current mood is {{ mood.name }}. We know because his face has a {{ mood.face }} on it. He looks like this: 
+        <br/>
+        <img ng-src="{{ mood.image }}" alt="{{ mood.name }}" style="height:100px;width:100px"></li>
+      </ul>
+         <ng-viewport></ng-viewport>
+       </div>
+      </div>
+
+  
+
+  </body>
+</html>
